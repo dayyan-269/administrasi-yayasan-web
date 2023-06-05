@@ -2,6 +2,10 @@ import StatsContainer from '@/components/Stats/StatsContainer';
 import StatsItem from '@/components/Stats/StatsItem';
 import LineChart from '@/components/Charts/LineChart';
 
+export const metadata = {
+  title: 'Dashboard Pegawai - Yayasan Bakti Luhur',
+};
+
 function Page() {
   return (
     <div className='w-full px-3'>

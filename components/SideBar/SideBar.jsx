@@ -13,10 +13,12 @@ function SideBar({ children }) {
         <ul className='menu p-4 w-80 h-full bg-base-200 text-base-content'>
           {/* Sidebar content here */}
           <SideBarItem>Dashboard</SideBarItem>
+
           <li className='menu-title'>Management</li>
           <SideBarItem>Observasi</SideBarItem>
           <SideBarItem>Inventoris</SideBarItem>
           <SideBarItem>Pengobatan</SideBarItem>
+
           <li className='menu-title'>Data Master</li>
           <SideBarItem>Anak Asuhan</SideBarItem>
           <SideBarItem>Pegawai</SideBarItem>
