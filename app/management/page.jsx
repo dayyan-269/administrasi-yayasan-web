@@ -1,6 +1,7 @@
 import StatsContainer from '@/components/Stats/StatsContainer';
 import StatsItem from '@/components/Stats/StatsItem';
 import LineChart from '@/components/Charts/LineChart';
+import DashboardContainer from '@/components/Containers/DashboardContainer';
 
 export const metadata = {
   title: 'Dashboard Pegawai - Yayasan Bakti Luhur',
@@ -8,7 +9,7 @@ export const metadata = {
 
 function Page() {
   return (
-    <div className='w-full px-3'>
+    <DashboardContainer>
       <div className='flex flex-col gap-y-3'>
         <h1 className='prose prose-xl font-bold'>Overview</h1>
         <div className='w-full flex flex-row justify-between gap-x-3'>
@@ -30,7 +31,7 @@ function Page() {
         <h1 className='prose prose-xl font-bold'>Finance</h1>
         <LineChart />
       </div>
-    </div>
+    </DashboardContainer>
   );
 }
 
