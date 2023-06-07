@@ -13,7 +13,9 @@ function LoginForm({ className = '' }) {
       <div className='card-body'>
         <TextInput label='Username' />
         <TextInput label='Password' type='password' />
-        <PrimaryButton onClick={() => router.push('/management')}>
+        <PrimaryButton
+          className='btn-primary mt-2'
+          onClick={() => router.push('/management')}>
           Login
         </PrimaryButton>
       </div>
