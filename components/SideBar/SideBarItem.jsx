@@ -1,7 +1,9 @@
-function NavBarItem({ children }) {
+import Link from 'next/link';
+
+function NavBarItem({ children, href = '' }) {
   return (
     <li>
-      <a>{children}</a>
+      <Link href={href}>{children}</Link>
     </li>
   );
 }
