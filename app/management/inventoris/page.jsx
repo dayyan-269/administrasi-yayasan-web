@@ -8,39 +8,34 @@ function Page() {
   return (
     <DashboardContainer>
       <LinkButton
-        href='/management/master/pegawai/insert'
+        href='/management/master/inventoris/insert'
         className='w-fit btn-sm'>
         Tambah Data
       </LinkButton>
-
-      <Card title={'Data Pegawai'}>
-        <Table className='table-pin-rows'>
+      <Card title={'Data Inventoris Anak Asuhan'}>
+        <Table>
           <thead>
             <tr>
               <th>#</th>
-              <th>Nama</th>
-              <th>Kewarganegaraan</th>
-              <th>Agama</th>
-              <th>Tempat Lahir</th>
-              <th>Tanggal Lahir</th>
+              <th>Nama Barang</th>
+              <th>Pemilik</th>
+              <th>Kuantitas</th>
+              <th>Keterangan</th>
               <th>Tanggal Masuk</th>
-              <th>Tanggal Keluar</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th>1.</th>
-              <th className='whitespace-nowrap'>Cy Gdnderton</th>
-              <td>-</td>
-              <td>-</td>
+              <th>1</th>
+              <td>Cy Ganderton</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td className='flex flex-row gap-1'>
                 <LinkButton
-                  href='/management/master/pegawai/edit'
+                  href='/management/master/barang-anak-asuhan/edit'
                   className='btn-info'>
                   Edit
                 </LinkButton>

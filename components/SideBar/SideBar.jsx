@@ -11,9 +11,9 @@ function SideBar({ children }) {
           <SideBarItem href='/management'>Dashboard</SideBarItem>
 
           <li className='menu-title'>Management</li>
-          <SideBarItem>Observasi</SideBarItem>
-          <SideBarItem>Inventoris</SideBarItem>
-          <SideBarItem>Pengobatan</SideBarItem>
+          <SideBarItem href='/management/jurnal'>Jurnal</SideBarItem>
+          <SideBarItem href='/management/inventoris'>Inventoris</SideBarItem>
+          <SideBarItem href='/management/pengobatan'>Pengobatan</SideBarItem>
 
           <li className='menu-title'>Data Master</li>
           <SideBarItem href='/management/master/anak-asuhan'>
