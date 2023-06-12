@@ -8,23 +8,25 @@ function Page() {
   return (
     <DashboardContainer>
       <LinkButton
-        href='/management/master/pegawai/insert'
+        href='/management/master/anak-asuhan/insert'
         className='w-fit btn-sm'>
         Tambah Data
       </LinkButton>
 
-      <Card title={'Data Pegawai'}>
+      <Card title={'Data Anak Asuhan'}>
         <Table className='table-pin-rows'>
           <thead>
             <tr>
               <th>#</th>
               <th>Nama</th>
-              <th>Kewarganegaraan</th>
-              <th>Agama</th>
-              <th>Tempat Lahir</th>
-              <th>Tanggal Lahir</th>
+              <th>TTL</th>
+              <th>Asal</th>
+              <th>Tinggi Badan & Berat Badan</th>
+              <th>Jenis Ketunaan</th>
+              <th>Tipe Pembayaran</th>
               <th>Tanggal Masuk</th>
               <th>Tanggal Keluar</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -32,6 +34,8 @@ function Page() {
             <tr>
               <th>1.</th>
               <th className='whitespace-nowrap'>Cy Gdnderton</th>
+              <td>-</td>
+              <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
