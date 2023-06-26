@@ -3,28 +3,18 @@ import PrimaryAlert from '@/components/Alerts/PrimaryAlert';
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import TextInput from '@/components/Inputs/TextInput';
 import LinkButton from '@/components/Buttons/LinkButton';
-import TextArea from '@/components/Inputs/TextArea';
 
 const Page = () => {
   return (
     <DashboardContainer>
-      <h1 className='prose prose-xl'>Tambah Barang Anak</h1>
+      <h1 className='prose prose-xl'>Tambah Jenis Pembayaran</h1>
 
       <div className='flex flex-col gap-y-3'>
-        <TextInput
-          label='Nama Barang Medis'
-          type='text'
-          className='input-primary'
-        />
-        <TextArea
-          label='Deskripsi Barang'
-          type='text'
-          className='textarea-primary'
-        />
+        <TextInput label='Nama Jenis Pembayaran' type='text' />
         <div className='flex flex-row gap-x-3'>
           <LinkButton
             className='w-fit btn-accent'
-            href='/management/master/barang-anak-asuhan'>
+            href='/management/master/jenis-pembayaran'>
             Cancel
           </LinkButton>
           <PrimaryButton className='w-fit btn-primary'>Submit</PrimaryButton>

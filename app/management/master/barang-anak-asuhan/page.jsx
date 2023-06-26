@@ -1,10 +1,16 @@
+import { cookies } from 'next/headers';
+
 import Table from '@/components/Tables/Table';
 import Card from '@/components/Cards/Card';
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import LinkButton from '@/components/Buttons/LinkButton';
 import DashboardContainer from '@/components/Containers/DashboardContainer';
+import EmptyRow from '@/components/Tables/EmptyRow';
 
 function Page() {
+  const token = cookies().get('token').value;
+  const barangAnak = [];
+
   return (
     <DashboardContainer>
       <LinkButton
@@ -23,19 +29,25 @@ function Page() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td className='flex flex-row gap-1'>
-                <LinkButton
-                  href='/management/master/barang-anak-asuhan/edit'
-                  className='btn-info'>
-                  Edit
-                </LinkButton>
-                <PrimaryButton className='btn-accent'>Delete</PrimaryButton>
-              </td>
-            </tr>
+            {barangAnak.length > 0 ? (
+              barangAnak.map((data, index) => {
+                <tr key={data.id}>
+                  <th>{index + 1}</th>
+                  <td>{data.nama}</td>
+                  <td>{data.deskripsi}</td>
+                  <td className='flex flex-row gap-1'>
+                    <LinkButton
+                      href={`/management/master/barang-anak-asuhan/edit/${data.id}`}
+                      className='btn-info'>
+                      Edit
+                    </LinkButton>
+                    <PrimaryButton className='btn-accent'>Delete</PrimaryButton>
+                  </td>
+                </tr>;
+              })
+            ) : (
+              <EmptyRow colSpan={4} />
+            )}
           </tbody>
         </Table>
       </Card>

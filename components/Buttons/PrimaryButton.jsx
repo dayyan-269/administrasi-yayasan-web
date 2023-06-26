@@ -2,7 +2,7 @@
 
 function PrimaryButton({ className = '', children, onClick }) {
   return (
-    <button className={`btn btn-sm ${className}`} onClick={onClick}>
+    <button className={`btn btn-sm shadow-md ${className}`} onClick={onClick}>
       {children}
     </button>
   );

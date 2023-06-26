@@ -1,4 +1,10 @@
-function TextInput({ className = '', type = 'text', label = '', name = null }) {
+function TextInput({
+  className = '',
+  type = 'text',
+  label = '',
+  name = null,
+  onChange,
+}) {
   return (
     <div className='form-control w-full'>
       <label className='label'>
@@ -7,7 +13,8 @@ function TextInput({ className = '', type = 'text', label = '', name = null }) {
       <input
         type={type}
         name={name}
-        className={`input input-bordered input-primary w-full ${className}`}
+        onChange={onChange}
+        className={`input input-bordered w-full shadow-md ${className}`}
       />
     </div>
   );
