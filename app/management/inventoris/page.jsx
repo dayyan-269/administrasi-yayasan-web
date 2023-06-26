@@ -1,18 +1,16 @@
-import Table from '@/components/Tables/Table';
-import Card from '@/components/Cards/Card';
-import PrimaryButton from '@/components/Buttons/PrimaryButton';
-import LinkButton from '@/components/Buttons/LinkButton';
-import DashboardContainer from '@/components/Containers/DashboardContainer';
+import Table from "@/components/Tables/Table";
+import Card from "@/components/Cards/Card";
+import PrimaryButton from "@/components/Buttons/PrimaryButton";
+import LinkButton from "@/components/Buttons/LinkButton";
+import DashboardContainer from "@/components/Containers/DashboardContainer";
 
 function Page() {
   return (
     <DashboardContainer>
-      <LinkButton
-        href='/management/master/inventoris/insert'
-        className='w-fit btn-sm'>
+      <LinkButton href="/management/inventoris/insert" className="w-fit btn-sm">
         Tambah Data
       </LinkButton>
-      <Card title={'Data Inventoris Anak Asuhan'}>
+      <Card title={"Data Inventoris Anak Asuhan"}>
         <Table>
           <thead>
             <tr>
@@ -33,13 +31,14 @@ function Page() {
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td className='flex flex-row gap-1'>
+              <td className="flex flex-row gap-1">
                 <LinkButton
-                  href='/management/master/barang-anak-asuhan/edit'
-                  className='btn-info'>
+                  href="/management/master/barang-anak-asuhan/edit"
+                  className="btn-info"
+                >
                   Edit
                 </LinkButton>
-                <PrimaryButton className='btn-accent'>Delete</PrimaryButton>
+                <PrimaryButton className="btn-accent">Delete</PrimaryButton>
               </td>
             </tr>
           </tbody>
