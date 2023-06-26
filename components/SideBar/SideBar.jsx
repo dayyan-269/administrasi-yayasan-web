@@ -8,7 +8,7 @@ function SideBar({ children }) {
       <div className='drawer-side '>
         <label htmlFor='my-drawer-2' className='drawer-overlay'></label>
         <ul className='menu p-4 w-80 h-full bg-base-200 text-base-content'>
-          <SideBarItem href='/management'>Dashboard</SideBarItem>
+          <SideBarItem href='/management/dashboard'>Dashboard</SideBarItem>
 
           <li className='menu-title'>Management</li>
           <SideBarItem href='/management/jurnal'>Jurnal</SideBarItem>
