@@ -1,12 +1,13 @@
-import { cookies } from 'next/headers';
+import { cookies } from "next/headers";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
-import Table from '@/components/Tables/Table';
-import Card from '@/components/Cards/Card';
-import PrimaryButton from '@/components/Buttons/PrimaryButton';
-import LinkButton from '@/components/Buttons/LinkButton';
-import DashboardContainer from '@/components/Containers/DashboardContainer';
+import Table from "@/components/Tables/Table";
+import Card from "@/components/Cards/Card";
+import PrimaryButton from "@/components/Buttons/PrimaryButton";
+import LinkButton from "@/components/Buttons/LinkButton";
+import DashboardContainer from "@/components/Containers/DashboardContainer";
 
-import { getKebutuhanMedis } from '@/services/master/kebutuhanMedisService';
+import { getKebutuhanMedis } from "@/services/master/kebutuhanMedisService";
 
 const fetchKebutuhanMedis = async (token) => {
   try {
@@ -17,17 +18,18 @@ const fetchKebutuhanMedis = async (token) => {
 };
 
 async function Page() {
-  const token = cookies().get('token').value;
+  const token = cookies().get("token").value;
   const kebutuhanMedis = await fetchKebutuhanMedis(token);
 
   return (
     <DashboardContainer>
       <LinkButton
-        href='/management/master/kebutuhan-medis/insert'
-        className='w-fit btn-sm'>
+        href="/management/master/kebutuhan-medis/insert"
+        className="w-fit btn-sm"
+      >
         Tambah Data
       </LinkButton>
-      <Card title={'Data Kebutuhan Medis'}>
+      <Card title={"Data Kebutuhan Medis"}>
         <Table>
           <thead>
             <tr>
@@ -42,13 +44,18 @@ async function Page() {
                 <tr key={data.id}>
                   <th>{index + 1}</th>
                   <td>{data.nama}</td>
-                  <td className='flex flex-row gap-1'>
+                  <td className="flex flex-row gap-1">
                     <LinkButton
                       href={`/management/master/barang-anak-asuhan/edit/${data.id}`}
-                      className='btn-info'>
+                      className="btn-info"
+                    >
+                      <AiFillEdit />
                       Edit
                     </LinkButton>
-                    <PrimaryButton className='btn-accent'>Delete</PrimaryButton>
+                    <PrimaryButton className="btn-accent">
+                      <AiFillDelete />
+                      Delete
+                    </PrimaryButton>
                   </td>
                 </tr>
               );

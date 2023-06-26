@@ -6,7 +6,8 @@ import { useRouter } from 'next/navigation';
 import TextInput from '@/components/Inputs/TextInput';
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import PrimaryAlert from '@/components/Alerts/PrimaryAlert';
-import LoadingIndicator from '../Loading/LoadingIndicator';
+import LoadingIndicator from '@/components/Loading/LoadingIndicator';
+import Card from '@/components/Cards/Card';
 
 import { login } from '@/services/authService';
 
@@ -49,27 +50,25 @@ function LoginForm({ className = '' }) {
         ''
       )}
 
-      <div className={`card shadow-xl ${className}`}>
-        <div className='card-body'>
-          <TextInput
-            label='Email'
-            value={email}
-            type='email'
-            isRequired={true}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextInput
-            label='Password'
-            type='password'
-            value={password}
-            isRequired={true}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <PrimaryButton className='btn-primary mt-2' onClick={loginHandler}>
-            {isLoading ? <LoadingIndicator /> : 'Login'}
-          </PrimaryButton>
-        </div>
-      </div>
+      <Card>
+        <TextInput
+          label='Email'
+          value={email}
+          type='email'
+          isRequired={true}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextInput
+          label='Password'
+          type='password'
+          value={password}
+          isRequired={true}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <PrimaryButton className='btn-primary mt-2' onClick={loginHandler}>
+          {isLoading ? <LoadingIndicator /> : 'Login'}
+        </PrimaryButton>
+      </Card>
     </div>
   );
 }

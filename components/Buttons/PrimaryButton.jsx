@@ -1,8 +1,11 @@
-'use client';
+"use client";
 
-function PrimaryButton({ className = '', children, onClick }) {
+function PrimaryButton({ className = "", children, onClick }) {
   return (
-    <button className={`btn btn-sm shadow-md ${className}`} onClick={onClick}>
+    <button
+      className={`btn btn-sm shadow-md normal-case rounded-lg font-normal tracking-wider ${className}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
