@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import TextInput from '@/components/Inputs/TextInput';
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import PrimaryAlert from '@/components/Alerts/PrimaryAlert';
+import LoadingIndicator from '../Loading/LoadingIndicator';
 
 import { login } from '@/services/authService';
 
@@ -13,16 +14,20 @@ function LoginForm({ className = '' }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
-  const loginHandler = async (e) => {
+  const loginHandler = async () => {
     try {
+      setIsLoading(true);
       setError(null);
+
       await login({ email, password });
 
       router.push('/management/dashboard');
     } catch (e) {
+      setIsLoading(false);
       setError(e.message);
     }
   };
@@ -49,16 +54,19 @@ function LoginForm({ className = '' }) {
           <TextInput
             label='Email'
             value={email}
+            type='email'
+            isRequired={true}
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextInput
             label='Password'
             type='password'
             value={password}
+            isRequired={true}
             onChange={(e) => setPassword(e.target.value)}
           />
           <PrimaryButton className='btn-primary mt-2' onClick={loginHandler}>
-            Login
+            {isLoading ? <LoadingIndicator /> : 'Login'}
           </PrimaryButton>
         </div>
       </div>

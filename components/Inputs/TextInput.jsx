@@ -4,6 +4,7 @@ function TextInput({
   label = '',
   name = null,
   onChange,
+  isRequired = false,
 }) {
   return (
     <div className='form-control w-full'>
@@ -14,7 +15,8 @@ function TextInput({
         type={type}
         name={name}
         onChange={onChange}
-        className={`input input-bordered w-full shadow-md ${className}`}
+        required={isRequired}
+        className={`focus:outline-none focus:border-green-500 input input-bordered w-full shadow-md ${className}`}
       />
     </div>
   );

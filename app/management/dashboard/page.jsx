@@ -6,6 +6,7 @@ import LineChart from '@/components/Charts/LineChart';
 import DashboardContainer from '@/components/Containers/DashboardContainer';
 
 import { getDasboardStats } from '@/services/management/statsService';
+import Table from '@/components/Tables/Table';
 
 export const metadata = {
   title: 'Dashboard Pegawai - Yayasan Bakti Luhur',
@@ -60,8 +61,22 @@ async function Page() {
         </div>
       </div>
       <div className='mt-3 flex flex-col gap-y-3'>
-        <h1 className='prose prose-xl font-bold'>Finance</h1>
-        <LineChart />
+        <div className='flex flex-col gap-y-3'>
+          <h1 className='prose prose-xl font-bold'>Finance</h1>
+          <LineChart />
+        </div>
+        <div className='flex flex-col gap-y-3'>
+          <h1 className='prose prose-xl font-bold'>Jurnal</h1>
+          <Table>
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Anak Asuhan</th>
+                <th>Jenis Perilaku</th>
+              </tr>
+            </thead>
+          </Table>
+        </div>
       </div>
     </DashboardContainer>
   );
