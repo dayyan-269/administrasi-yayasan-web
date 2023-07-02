@@ -1,6 +1,6 @@
-export const getKebutuhanMedis = async (token) => {
+export const getBarangAnakAsuhan = async (token) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/kebutuhan-medis`,
+    `${process.env.NEXT_PUBLIC_API_URL}/barang-anak`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -12,15 +12,15 @@ export const getKebutuhanMedis = async (token) => {
   const result = await request.json();
 
   if (!request.ok) {
-    throw new Error(`failed to fetch kebutuhan medis: ${result.message}`);
+    throw new Error(`failed to fetch barang anak: ${result.message}`);
   }
 
   return result.data;
 };
 
-export const getKebutuhanMedisById = async (token, kebutuhanMedisId) => {
+export const getBarangAnakAsuhanById = async (token, barangAnakId) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/kebutuhan-medis/${kebutuhanMedisId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/barang-anak/${barangAnakId}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -33,64 +33,64 @@ export const getKebutuhanMedisById = async (token, kebutuhanMedisId) => {
 
   if (!request.ok) {
     throw new Error(
-      `failed to fetch kebutuhan medis with id ${kebutuhanMedisId}: ${result.message}`
+      `failed to fetch barang anak with id ${barangAnakId}: ${result.message}`
     );
   }
 
   return result.data;
 };
 
-export const insertKebutuhanMedis = async (token, kebutuhanMedis) => {
+export const insertBarangAnakAsuhan = async (token, barangAnak) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/kebutuhan-medis`,
+    `${process.env.NEXT_PUBLIC_API_URL}/barang-anak`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       method: 'POST',
-      body: JSON.stringify(kebutuhanMedis),
+      body: JSON.stringify(barangAnak),
     }
   );
 
   const result = await request.json();
 
   if (!request.ok) {
-    throw new Error(`failed to insert kebutuhan medis: ${result.message}`);
+    throw new Error(`failed to insert barang anak: ${result.message}`);
   }
 
-  return result;
+  return result.data;
 };
 
-export const updateKebutuhanMedis = async (
+export const updateBarangAnakAsuhan = async (
   token,
-  kebutuhanMedisId,
-  kebutuhanMedis
+  barangAnakId,
+  barangAnak
 ) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/kebutuhan-medis/${kebutuhanMedisId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/barang-anak/${barangAnakId}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       method: 'PUT',
-      body: JSON.stringify(kebutuhanMedis),
+      body: JSON.stringify(barangAnak),
     }
   );
 
   const result = await request.json();
 
   if (!request.ok) {
-    throw new Error(`failed to update kebutuhan medis: ${result.message}`);
+    throw new Error(`failed to update barang anak: ${result.message}`);
   }
 
   return result.data;
 };
 
-export const deleteKebutuhanMedis = async (token, kebutuhanMedisId) => {
+export const deleteBarangAnakAsuhan = async (token, barangAnakId) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/kebutuhan-medis/${kebutuhanMedisId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/barang-anak/${barangAnakId}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -103,7 +103,7 @@ export const deleteKebutuhanMedis = async (token, kebutuhanMedisId) => {
   const result = await request.json();
 
   if (!request.ok) {
-    throw new Error(`failed to delete kebutuhan medis: ${result.message}`);
+    throw new Error(`failed to delete barang anak: ${result.message}`);
   }
 
   return result.data;
