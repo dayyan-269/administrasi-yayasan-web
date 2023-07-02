@@ -1,9 +1,22 @@
 'use client';
 
-function PrimaryButton({ className = '', children, onClick }) {
+import LoadingIndicator from '../Loading/LoadingIndicator';
+
+function PrimaryButton({
+  className = '',
+  type = '',
+  children,
+  onClick,
+  formmethod,
+  isLoading = false,
+}) {
   return (
-    <button className={`btn btn-sm shadow-md ${className}`} onClick={onClick}>
-      {children}
+    <button
+      className={`btn btn-sm shadow-md ${className}`}
+      type={type}
+      formMethod={formmethod}
+      onClick={onClick}>
+      {isLoading ? <LoadingIndicator /> : children}
     </button>
   );
 }

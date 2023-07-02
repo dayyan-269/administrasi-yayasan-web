@@ -1,5 +1,6 @@
 function TextInput({
   className = '',
+  value = '',
   type = 'text',
   label = '',
   name = null,
@@ -14,6 +15,7 @@ function TextInput({
       <input
         type={type}
         name={name}
+        value={value}
         onChange={onChange}
         required={isRequired}
         className={`focus:outline-none focus:border-green-500 input input-bordered w-full shadow-md ${className}`}
