@@ -4,9 +4,9 @@ import StatsContainer from '@/components/Stats/StatsContainer';
 import StatsItem from '@/components/Stats/StatsItem';
 import LineChart from '@/components/Charts/LineChart';
 import DashboardContainer from '@/components/Containers/DashboardContainer';
+import Table from '@/components/Tables/Table';
 
 import { getDasboardStats } from '@/services/management/statsService';
-import Table from '@/components/Tables/Table';
 
 export const metadata = {
   title: 'Dashboard Pegawai - Yayasan Bakti Luhur',
