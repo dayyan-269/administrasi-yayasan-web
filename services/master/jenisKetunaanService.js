@@ -49,7 +49,7 @@ export const insertJenisKetunaan = async (token, jenisKetunaan) => {
         'Content-Type': 'application/json',
       },
       method: 'POST',
-      body: jenisKetunaan,
+      body: JSON.stringify(jenisKetunaan),
     }
   );
 
@@ -62,7 +62,11 @@ export const insertJenisKetunaan = async (token, jenisKetunaan) => {
   return result.data;
 };
 
-export const updateJenisKetunaan = async (token, jenisKetunaanId) => {
+export const updateJenisKetunaan = async (
+  token,
+  jenisKetunaanId,
+  jenisKetunaan
+) => {
   const request = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/jenis-ketunaan/${jenisKetunaanId}`,
     {
@@ -71,6 +75,7 @@ export const updateJenisKetunaan = async (token, jenisKetunaanId) => {
         'Content-Type': 'application/json',
       },
       method: 'PUT',
+      body: JSON.stringify(jenisKetunaan),
     }
   );
 
