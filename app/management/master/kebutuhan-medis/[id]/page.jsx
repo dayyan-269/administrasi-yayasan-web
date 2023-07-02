@@ -1,13 +1,15 @@
 import { cookies } from 'next/headers';
 
 import DashboardContainer from '@/components/Containers/DashboardContainer';
-import InsertForm from '@/components/Forms/Masters/BarangAnakAsuh/InsertForm';
+import UpdateForm from '@/components/Forms/Masters/KebutuhanMedis/UpdateForm';
 
-const Page = () => {
+const Page = ({ params }) => {
   const token = cookies().get('token').value;
+  const id = params.id;
+
   return (
-    <DashboardContainer>
-      <InsertForm token={token} />
+    <DashboardContainer className={'gap-y-6'}>
+      <UpdateForm token={token} id={id} />
     </DashboardContainer>
   );
 };

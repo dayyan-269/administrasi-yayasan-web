@@ -1,14 +1,13 @@
+import DashboardContainer from '@/components/Containers/DashboardContainer';
+import UpdateForm from '@/components/Forms/Masters/BarangAnakAsuh/UpdateForm';
 import { cookies } from 'next/headers';
 
-import DashboardContainer from '@/components/Containers/DashboardContainer';
-import BarangAnakAsuhan from '@/components/Sections/Masters/BarangAnakAsuhan';
-
-function Page() {
+function Page({ params }) {
   const token = cookies().get('token').value;
-
+  const id = params.id;
   return (
     <DashboardContainer>
-      <BarangAnakAsuhan token={token} />
+      <UpdateForm token={token} id={id} />
     </DashboardContainer>
   );
 }
