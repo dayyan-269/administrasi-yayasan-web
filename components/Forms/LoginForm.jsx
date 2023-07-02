@@ -65,8 +65,11 @@ function LoginForm({ className = '' }) {
             isRequired={true}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <PrimaryButton className='btn-primary mt-2' onClick={loginHandler}>
-            {isLoading ? <LoadingIndicator /> : 'Login'}
+          <PrimaryButton
+            className='btn-primary mt-2'
+            onClick={loginHandler}
+            isLoading={isLoading}>
+            Login
           </PrimaryButton>
         </div>
       </div>
