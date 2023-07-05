@@ -9,12 +9,10 @@ function Page() {
   const inventorisData = [];
   return (
     <DashboardContainer>
-      <LinkButton
-        href='/management/master/inventoris/insert'
-        className='w-fit btn-sm'>
+      <LinkButton href="/management/inventoris/insert" className="w-fit btn-sm">
         Tambah Data
       </LinkButton>
-      <Card title={'Data Inventoris Anak Asuhan'}>
+      <Card title={"Data Inventoris Anak Asuhan"}>
         <Table>
           <thead>
             <tr>

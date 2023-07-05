@@ -6,7 +6,8 @@ import { useRouter } from 'next/navigation';
 import TextInput from '@/components/Inputs/TextInput';
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import PrimaryAlert from '@/components/Alerts/PrimaryAlert';
-import LoadingIndicator from '../Loading/LoadingIndicator';
+import LoadingIndicator from '@/components/Loading/LoadingIndicator';
+import Card from '@/components/Cards/Card';
 
 import { login } from '@/services/authService';
 

@@ -1,12 +1,13 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-function LinkButton({ children, href = '', className = '' }) {
+function LinkButton({ children, href = "", className = "" }) {
   return (
     <Link
       href={href}
-      className={`btn btn-sm btn-primary shadow-md ${className}`}>
+      className={`btn btn-sm btn-primary shadow-md normal-case font-normal rounded-lg ${className}`}
+    >
       {children}
     </Link>
   );

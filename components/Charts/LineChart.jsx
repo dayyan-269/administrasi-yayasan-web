@@ -9,7 +9,7 @@ function LineChart() {
 
     mainChart.setOption({
       title: {
-        text: 'Diagram Pemasukan & Pengeluaran',
+        text: 'Diagram Kondisi Anak Asuh',
       },
       tooltip: {},
       xAxis: {

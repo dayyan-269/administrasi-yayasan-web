@@ -9,9 +9,7 @@ function Page() {
   const pengobatanData = [];
   return (
     <DashboardContainer>
-      <LinkButton
-        href='/management/master/pengobatan/insert'
-        className='w-fit btn-sm'>
+      <LinkButton href='/management/pengobatan/insert' className='w-fit btn-sm'>
         Tambah Data
       </LinkButton>
       <Card title={'Data Pengobatan'}>

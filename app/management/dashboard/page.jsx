@@ -5,6 +5,7 @@ import StatsItem from '@/components/Stats/StatsItem';
 import LineChart from '@/components/Charts/LineChart';
 import DashboardContainer from '@/components/Containers/DashboardContainer';
 import Table from '@/components/Tables/Table';
+import EmptyRow from '@/components/Tables/EmptyRow';
 
 import { getDasboardStats } from '@/services/management/statsService';
 
@@ -62,11 +63,11 @@ async function Page() {
       </div>
       <div className='mt-3 flex flex-col gap-y-3'>
         <div className='flex flex-col gap-y-3'>
-          <h1 className='prose prose-xl font-bold'>Finance</h1>
+          <h1 className='prose prose-xl font-bold'>Statistik</h1>
           <LineChart />
         </div>
         <div className='flex flex-col gap-y-3'>
-          <h1 className='prose prose-xl font-bold'>Jurnal</h1>
+          <h1 className='prose prose-xl font-bold'>Jurnal Terkini</h1>
           <Table>
             <thead>
               <tr>
@@ -75,6 +76,9 @@ async function Page() {
                 <th>Jenis Perilaku</th>
               </tr>
             </thead>
+            <tbody>
+              <EmptyRow />
+            </tbody>
           </Table>
         </div>
       </div>
