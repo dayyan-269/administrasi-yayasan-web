@@ -3,8 +3,10 @@ import Card from '@/components/Cards/Card';
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import LinkButton from '@/components/Buttons/LinkButton';
 import DashboardContainer from '@/components/Containers/DashboardContainer';
+import EmptyRow from '@/components/Tables/EmptyRow';
 
 function Page() {
+  const pengobatanData = [];
   return (
     <DashboardContainer>
       <LinkButton
@@ -25,21 +27,25 @@ function Page() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Quality Control Specialist</td>
-              <td>Quality Control Specialist</td>
-              <td className='flex flex-row gap-1'>
-                <LinkButton
-                  href='/management/master/barang-anak-asuhan/edit'
-                  className='btn-info'>
-                  Edit
-                </LinkButton>
-                <PrimaryButton className='btn-accent'>Delete</PrimaryButton>
-              </td>
-            </tr>
+            {pengobatanData.length > 0 ? (
+              <tr>
+                <th>1</th>
+                <td>Cy Ganderton</td>
+                <td>Quality Control Specialist</td>
+                <td>Quality Control Specialist</td>
+                <td>Quality Control Specialist</td>
+                <td className='flex flex-row gap-1'>
+                  <LinkButton
+                    href='/management/master/barang-anak-asuhan/edit'
+                    className='btn-info'>
+                    Edit
+                  </LinkButton>
+                  <PrimaryButton className='btn-accent'>Delete</PrimaryButton>
+                </td>
+              </tr>
+            ) : (
+              <EmptyRow colSpan={7} />
+            )}
           </tbody>
         </Table>
       </Card>
