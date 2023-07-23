@@ -1,50 +1,64 @@
+import { cookies } from 'next/headers';
+
 import Table from '@/components/Tables/Table';
 import Card from '@/components/Cards/Card';
-import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import LinkButton from '@/components/Buttons/LinkButton';
 import DashboardContainer from '@/components/Containers/DashboardContainer';
 import EmptyRow from '@/components/Tables/EmptyRow';
 
-function Page() {
-  const inventorisData = [];
+import { getAnakAsuhan } from '@/services/master/anakAsuhanService';
+
+const fetchAnakAsuhan = async (token) => {
+  try {
+    const result = await getAnakAsuhan(token);
+    return result;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+async function Page() {
+  const token = cookies().get('token').value;
+  const anakAsuhan = await fetchAnakAsuhan(token);
+
   return (
     <DashboardContainer>
-      <LinkButton href="/management/inventoris/insert" className="w-fit btn-sm">
+      <LinkButton href='/management/inventoris/insert' className='w-fit btn-sm'>
         Tambah Data
       </LinkButton>
-      <Card title={"Data Inventoris Anak Asuhan"}>
-        <Table>
+
+      <Card title={'Data Inventoris Anak Asuhan'}>
+        <Table className='table-pin-rows'>
           <thead>
             <tr>
               <th>#</th>
-              <th>Nama Barang</th>
-              <th>Pemilik</th>
-              <th>Kuantitas</th>
-              <th>Keterangan</th>
-              <th>Tanggal Masuk</th>
+              <th>Nama</th>
+              <th>Tipe Pembayaran</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {inventorisData.length > 0 ? (
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td className='flex flex-row gap-1'>
-                  <LinkButton
-                    href='/management/master/barang-anak-asuhan/edit'
-                    className='btn-info'>
-                    Edit
-                  </LinkButton>
-                  <PrimaryButton className='btn-accent'>Delete</PrimaryButton>
-                </td>
-              </tr>
+            {anakAsuhan.length > 0 ? (
+              anakAsuhan.map((data, index) => {
+                return (
+                  <tr>
+                    <th>{index + 1}</th>
+                    <td className='whitespace-nowrap'>{data.nama}</td>
+                    <td>{data.tipe_pembayaran.nama}</td>
+                    <td>-</td>
+                    <td className='flex flex-row gap-1'>
+                      <LinkButton
+                        href={`/management/inventoris/detail/${data.id}`}
+                        className='btn-info'>
+                        Detail
+                      </LinkButton>
+                    </td>
+                  </tr>
+                );
+              })
             ) : (
-              <EmptyRow colSpan={7} />
+              <EmptyRow colSpan={11} />
             )}
           </tbody>
         </Table>
