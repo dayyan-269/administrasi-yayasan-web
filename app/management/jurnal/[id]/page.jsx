@@ -1,13 +1,15 @@
 import { cookies } from 'next/headers';
 
 import DashboardContainer from '@/components/Containers/DashboardContainer';
-import InsertForm from '@/components/Forms/Managements/Jurnal/InsertForm';
+import UpdateForm from '@/components/Forms/Managements/Jurnal/UpdateForm';
 
-const Page = () => {
+const Page = ({ params }) => {
   const token = cookies().get('token').value;
+  const id = params.id;
+
   return (
     <DashboardContainer>
-      <InsertForm token={token} />
+      <UpdateForm token={token} id={id} />
     </DashboardContainer>
   );
 };
