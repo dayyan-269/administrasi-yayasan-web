@@ -18,12 +18,12 @@ function LineChart() {
       yAxis: {},
       series: [
         {
-          data: [10, 22, 28, 43, 49],
+          data: [10, 2, 3, 1, 0],
           type: 'line',
           stack: 'x',
         },
         {
-          data: [5, 4, 3, 5, 10],
+          data: [0, 1, 0, 0, 0],
           type: 'line',
           stack: 'x',
         },
