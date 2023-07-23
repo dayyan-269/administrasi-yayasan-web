@@ -1,6 +1,6 @@
-export const getJenisPembayaran = async (token) => {
+export const getAnakAsuhan = async (token) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/tipe-pembayaran`,
+    `${process.env.NEXT_PUBLIC_API_URL}/anak-asuhan`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -12,15 +12,15 @@ export const getJenisPembayaran = async (token) => {
   const result = await request.json();
 
   if (!request.ok) {
-    throw new Error(`failed to fetch jenis pembayaran: ${result.message}`);
+    throw new Error(`failed to fetch barang anak: ${result.message}`);
   }
 
   return result.data;
 };
 
-export const getJenisPembayaranById = async (token, jenisPembayaranId) => {
+export const getAnakAsuhanById = async (token, anakAsuhanId) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/tipe-pembayaran/${jenisPembayaranId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/anak-asuhan/${anakAsuhanId}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -33,59 +33,60 @@ export const getJenisPembayaranById = async (token, jenisPembayaranId) => {
 
   if (!request.ok) {
     throw new Error(
-      `failed to fetch jenis pembayaran with id ${jenisPembayaranId}: ${result.message}`
+      `failed to fetch barang anak with id ${anakAsuhanId}: ${result.message}`
     );
   }
 
   return result.data;
 };
 
-export const insertJenisPembayaran = async (token, jenisPembayaran) => {
+export const insertAnakAsuhan = async (token, anakAsuhan) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/tipe-pembayaran`,
+    `${process.env.NEXT_PUBLIC_API_URL}/anak-asuhan`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       method: 'POST',
-      body: jenisPembayaran,
+      body: JSON.stringify(anakAsuhan),
     }
   );
 
   const result = await request.json();
 
   if (!request.ok) {
-    throw new Error(`failed to insert jenis pembayaran: ${result.message}`);
+    throw new Error(`failed to insert barang anak: ${result.message}`);
   }
 
   return result.data;
 };
 
-export const updateJenisPembayaran = async (token, jenisPembayaranId) => {
+export const updateAnakAsuhan = async (token, anakAsuhanId, anakAsuhan) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/tipe-pembayaran/${jenisPembayaranId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/anak-asuhan/${anakAsuhanId}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       method: 'PUT',
+      body: JSON.stringify(anakAsuhan),
     }
   );
 
   const result = await request.json();
 
   if (!request.ok) {
-    throw new Error(`failed to update jenis pembayaran: ${result.message}`);
+    throw new Error(`failed to update barang anak: ${result.message}`);
   }
 
   return result.data;
 };
 
-export const deleteJenisPembayaran = async (token, jenisPembayaranId) => {
+export const deleteAnakAsuhan = async (token, anakAsuhanId) => {
   const request = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/tipe-pembayaran/${jenisPembayaranId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/anak-asuhan/${anakAsuhanId}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -98,7 +99,7 @@ export const deleteJenisPembayaran = async (token, jenisPembayaranId) => {
   const result = await request.json();
 
   if (!request.ok) {
-    throw new Error(`failed to delete jenis pembayaran: ${result.message}`);
+    throw new Error(`failed to delete barang anak: ${result.message}`);
   }
 
   return result.data;
