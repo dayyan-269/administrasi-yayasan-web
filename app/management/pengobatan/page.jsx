@@ -62,7 +62,7 @@ async function Page() {
                     </td>
                     <td className='flex flex-row gap-1'>
                       <LinkButton
-                        href='/management/master/barang-anak-asuhan/edit'
+                        href={`/management/pengobatan/detail/${item.id}`}
                         className='btn-info'>
                         Detail
                       </LinkButton>

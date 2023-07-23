@@ -19,7 +19,7 @@ const fetchJenisPembayaran = async (token) => {
 
 async function Page() {
   const token = cookies().get('token').value;
-  const jenisPembayaran = [];
+  const jenisPembayaran = await fetchJenisPembayaran(token);
 
   return (
     <DashboardContainer>
