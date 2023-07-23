@@ -9,7 +9,7 @@ const Page = () => {
     <DashboardContainer>
       <h1 className='prose prose-xl'>Tambah Pegawai</h1>
       <div className='flex flex-col gap-y-3'>
-        <TextInput label='Nama Jenis Pembayaran' type='text' />
+        <TextInput label='Nama Pegawai' type='text' />
         <div className='flex flex-row gap-x-3'>
           <Select label='Kewarganegaraan'>
             <option value='WNA'>WNI</option>
