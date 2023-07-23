@@ -26,7 +26,7 @@ const KebutuhanMedisSection = async ({ token }) => {
     try {
       const result = await getKebutuhanMedis(token);
       console.log(result);
-      setKebutuhanMedis(data);
+      setKebutuhanMedis(result);
     } catch (error) {
       console.error(error.message);
     }
