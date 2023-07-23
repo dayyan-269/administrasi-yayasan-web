@@ -49,7 +49,7 @@ export const insertJenisPembayaran = async (token, jenisPembayaran) => {
         'Content-Type': 'application/json',
       },
       method: 'POST',
-      body: jenisPembayaran,
+      body: JSON.stringify(jenisPembayaran),
     }
   );
 
@@ -62,7 +62,11 @@ export const insertJenisPembayaran = async (token, jenisPembayaran) => {
   return result.data;
 };
 
-export const updateJenisPembayaran = async (token, jenisPembayaranId) => {
+export const updateJenisPembayaran = async (
+  token,
+  jenisPembayaranId,
+  jenisPembayaran
+) => {
   const request = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/tipe-pembayaran/${jenisPembayaranId}`,
     {
@@ -71,6 +75,7 @@ export const updateJenisPembayaran = async (token, jenisPembayaranId) => {
         'Content-Type': 'application/json',
       },
       method: 'PUT',
+      body: JSON.stringify(jenisPembayaran),
     }
   );
 

@@ -74,7 +74,7 @@ const InsertForm = ({ token }) => {
           <div className='flex flex-row gap-x-3'>
             <LinkButton
               className='w-fit btn-accent'
-              href='/management/master/jenis-ketunaan'>
+              href='/management/master/jenis-pembayaran'>
               Cancel
             </LinkButton>
             <PrimaryButton
