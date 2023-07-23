@@ -40,7 +40,7 @@ function LoginForm({ className = '' }) {
           Login
         </h1>
         <p className='prose prose-sm'>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Silahkan anda memasukkan email yang sudah terdaftar.
         </p>
       </div>
 

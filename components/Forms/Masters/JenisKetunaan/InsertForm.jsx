@@ -11,6 +11,7 @@ import { insertJenisKetunaan } from '@/services/master/jenisKetunaanService';
 
 const InsertForm = ({ token }) => {
   const [nama, setNama] = useState('');
+
   const [infoMessage, setInfoMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,11 +27,11 @@ const InsertForm = ({ token }) => {
     setErrorMessage(true);
   };
 
-  const handleSubmit = async () => {
-    try {
-      e.preventDefault();
-      setIsLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
 
+    try {
       const data = { nama };
 
       await insertJenisKetunaan(token, data);
@@ -46,17 +47,17 @@ const InsertForm = ({ token }) => {
 
   return (
     <>
-      <h1 className='prose prose-xl'>Tambah Jenis Pembayaran</h1>
+      <h1 className='prose prose-xl'>Tambah Jenis Ketunaan</h1>
 
       {infoMessage ? (
         <PrimaryAlert className='alert-success'>
-          Tambah data barang anak berhasil.
+          Tambah data jenis ketunaan anak berhasil.
         </PrimaryAlert>
       ) : null}
 
       {errorMessage ? (
         <PrimaryAlert type='error' className='alert-error'>
-          Tambah data barang anak gagal.
+          Tambah data jenis ketunaan anak gagal.
         </PrimaryAlert>
       ) : null}
 
@@ -73,10 +74,13 @@ const InsertForm = ({ token }) => {
           <div className='flex flex-row gap-x-3'>
             <LinkButton
               className='w-fit btn-accent'
-              href='/management/master/jenis-pembayaran'>
+              href='/management/master/jenis-ketunaan'>
               Cancel
             </LinkButton>
-            <PrimaryButton className='w-fit btn-primary' isLoading={isLoading}>
+            <PrimaryButton
+              type='submit'
+              className='w-fit btn-primary'
+              isLoading={isLoading}>
               Submit
             </PrimaryButton>
           </div>
