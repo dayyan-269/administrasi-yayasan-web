@@ -18,12 +18,14 @@ const KebutuhanMedisSection = async ({ token }) => {
   //const [kebutuhanId, setKebutuhanId] = useState(0);
   const [infoMessage, setInfoMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
+
   const [kebutuhanMedis, setKebutuhanMedis] = useState([]);
   const kebutuhanId = useRef(0);
 
   const fetchData = async () => {
     try {
-      const data = await getKebutuhanMedis(token);
+      const result = await getKebutuhanMedis(token);
+      console.log(result);
       setKebutuhanMedis(data);
     } catch (error) {
       console.error(error.message);
@@ -111,10 +113,6 @@ const KebutuhanMedisSection = async ({ token }) => {
           </tbody>
         </Table>
       </Card>
-      <DeleteModal
-        title='Hapus Kebutuhan Medis'
-        handler={handleConfirmDelete}
-      />
     </>
   );
 };
