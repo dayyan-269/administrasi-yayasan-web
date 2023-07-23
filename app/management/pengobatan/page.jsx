@@ -1,12 +1,27 @@
+import { cookies } from 'next/headers';
+import dayjs from 'dayjs';
+
 import Table from '@/components/Tables/Table';
 import Card from '@/components/Cards/Card';
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import LinkButton from '@/components/Buttons/LinkButton';
 import DashboardContainer from '@/components/Containers/DashboardContainer';
 import EmptyRow from '@/components/Tables/EmptyRow';
+import { getPengobatan } from '@/services/management/pengobatanService';
 
-function Page() {
-  const pengobatanData = [];
+const fetchPengobatan = async (token) => {
+  try {
+    const result = getPengobatan(token);
+    return result;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+async function Page() {
+  const token = cookies().get('token').value;
+
+  const pengobatanData = await fetchPengobatan(token);
   return (
     <DashboardContainer>
       <LinkButton href='/management/pengobatan/insert' className='w-fit btn-sm'>
@@ -17,8 +32,7 @@ function Page() {
           <thead>
             <tr>
               <th>#</th>
-              <th>Nama</th>
-              <th>Jenis Penyakit</th>
+              <th>Kebutuhan Medis</th>
               <th>Tanggal Dipesan</th>
               <th>Tanggal Diterima</th>
               <th>Action</th>
@@ -26,21 +40,39 @@ function Page() {
           </thead>
           <tbody>
             {pengobatanData.length > 0 ? (
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Quality Control Specialist</td>
-                <td>Quality Control Specialist</td>
-                <td className='flex flex-row gap-1'>
-                  <LinkButton
-                    href='/management/master/barang-anak-asuhan/edit'
-                    className='btn-info'>
-                    Edit
-                  </LinkButton>
-                  <PrimaryButton className='btn-accent'>Delete</PrimaryButton>
-                </td>
-              </tr>
+              pengobatanData.map((item, index) => {
+                return (
+                  <tr>
+                    <th>{index + 1}</th>
+                    <td>
+                      {item.kebutuhan_medis
+                        .map((current) => current.nama)
+                        .join(', ')
+                        .toString()}
+                    </td>
+                    <td>
+                      {item.tanggal_dipesan
+                        ? dayjs(item.tanggal_dipesan).format('DD MMMM YYYY')
+                        : '-'}
+                    </td>
+                    <td>
+                      {item.tanggal_diterima
+                        ? dayjs(item.tanggal_diterima).format('DD MMMM YYYY')
+                        : '-'}
+                    </td>
+                    <td className='flex flex-row gap-1'>
+                      <LinkButton
+                        href='/management/master/barang-anak-asuhan/edit'
+                        className='btn-info'>
+                        Detail
+                      </LinkButton>
+                      <PrimaryButton className='btn-accent'>
+                        Delete
+                      </PrimaryButton>
+                    </td>
+                  </tr>
+                );
+              })
             ) : (
               <EmptyRow colSpan={7} />
             )}
