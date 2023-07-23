@@ -1,6 +1,7 @@
+import { cookies } from 'next/headers';
+
 import DashboardContainer from '@/components/Containers/DashboardContainer';
 import UpdateForm from '@/components/Forms/Masters/BarangAnakAsuh/UpdateForm';
-import { cookies } from 'next/headers';
 
 function Page({ params }) {
   const token = cookies().get('token').value;
